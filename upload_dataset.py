@@ -1,6 +1,5 @@
 from clearml import Dataset
 
-
 def upload_dataset(
     dataset_name,
     dataset_project,
