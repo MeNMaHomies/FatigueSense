@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-
 def extract_frames(
     video_path,
     output_dir="./data/images",
@@ -60,7 +59,7 @@ def extract_frames(
 
         for image in os.listdir(output_dir):
             formatted_target = f"{output_dir}/{image}"
-            
+
             if formatted_target in meta_data:
                 found_images.append(image)
             else:
@@ -88,4 +87,3 @@ if __name__ == "__main__":
 
     # Start frame extraction
     extract_frames(**args)
-    
