@@ -7,3 +7,4 @@ data
 PERSONAL.ipynb
 *.pt
 runs
+__pycache__
