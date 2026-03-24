@@ -1,16 +1,24 @@
-from scripts.upload_dataset import upload_dataset
+from clearml import Dataset
+from dotenv import load_dotenv
 
-DATASET_NAME = "fatigue-region-labels"
+DATASET_NAME = "fatigue-raw-frames-v2"
 DATASET_PROJECT = "FatigueSense"
 
-# Change these values to match your dataset details
-args = {
-    "dataset_name": DATASET_NAME,
-    "dataset_project": DATASET_PROJECT,
-    "data_path": [],
-    "dataset_tags": [],
-    "dataset_upload": "/path/in/dataset/for/upload",
-}
+load_dotenv()
 
-dataset_id = upload_dataset(**args)
-print(f"Dataset ID: {dataset_id}")
+# Create new dataset version, with the previous version as parent
+ds_new = Dataset.create(
+    dataset_name=DATASET_NAME,
+    dataset_project=DATASET_PROJECT,
+    dataset_tags=["raw_frames", "v2"],
+)
+
+# Images
+ds_new.add_files(
+    path="../dataset_1/images",
+    dataset_path="vid_001",
+)
+
+# Start upload
+ds_new.upload(show_progress=True)
+ds_new.finalize()
