@@ -1,5 +1,6 @@
 from clearml import Dataset
 
+
 def upload_dataset(
     dataset_name,
     dataset_project,
@@ -7,6 +8,7 @@ def upload_dataset(
     data_path=[],
     parent_dataset_id=None,
     dataset_tags=None,
+    dataset_path=None,
 ):
     ds = Dataset.create(
         dataset_name=dataset_name,
@@ -18,7 +20,7 @@ def upload_dataset(
 
     if data_path:
         for path in data_path:
-            ds.add_files(path)
+            ds.add_files(path, dataset_path=dataset_path)
 
     ds.upload()
     ds.finalize()
