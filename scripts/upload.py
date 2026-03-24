@@ -1,4 +1,4 @@
-from upload_dataset import upload_dataset
+from scripts.upload_dataset import upload_dataset
 
 DATASET_NAME = "fatigue-region-labels"
 DATASET_PROJECT = "FatigueSense"
