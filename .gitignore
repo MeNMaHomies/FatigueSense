@@ -14,6 +14,7 @@ __pycache__
 videos
 raw_data
 vid_*
+docs
 
 # Environment variables
 fatigue_sense.conf
@@ -21,3 +22,4 @@ fatigue_sense.conf
 
 # Jupyter Notebook
 PERSONAL.ipynb
+fatigue-sense
